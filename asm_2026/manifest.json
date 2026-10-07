@@ -1,0 +1,68 @@
+[
+  {
+    "file": "Занятие_0x01.pdf",
+    "downloaded_name": "Занятие_0x01.pdf",
+    "bytes": 227607,
+    "sha256": "a302ff9b101b035a5a319c4a1c3ae8d7ec7a281992100c7b9dc94fb6a1f18fe1"
+  },
+  {
+    "file": "lab01_main.nasm",
+    "downloaded_name": "main (2).nasm",
+    "bytes": 1914,
+    "sha256": "0bfe90eb0637a2a5c58637ac9a33a9a59e63775dc78b62840834e9beeaa4fff9"
+  },
+  {
+    "file": "lab01_main.py",
+    "downloaded_name": "main.py",
+    "bytes": 1385,
+    "sha256": "75b8dbaf10dbe9f938ffe32187f8b929bec1d68f0d3d55bc4efa4e1a472e9cc9"
+  },
+  {
+    "file": "lab01_задание.md",
+    "downloaded_name": "задание.md",
+    "bytes": 1699,
+    "sha256": "3708cf942dc598db52ab54dbebaaed4ed3c47cbbb66ed88241a090c62a2f789c"
+  },
+  {
+    "file": "lab01_задание.pdf",
+    "downloaded_name": "задание.pdf",
+    "bytes": 100162,
+    "sha256": "a49aace4a2af2c5a8c5d486349a0834249696319f6b2c0286eada164b3c34835"
+  },
+  {
+    "file": "Занятие_0x02.pdf",
+    "downloaded_name": "Занятие_0x02.pdf",
+    "bytes": 206187,
+    "sha256": "7316cb175dd09d7fb0a4a0cbd7fb213be6025ce43eb4ea42de3c52fa504c51f9"
+  },
+  {
+    "file": "task.zip",
+    "downloaded_name": "task.zip",
+    "bytes": 2722,
+    "sha256": "46deb5de1cbe8ba4ae4d2742d977a5aa94bae12ef0b8a06eb8318187c076a749"
+  },
+  {
+    "file": "lesson_0x3.zip",
+    "downloaded_name": "lesson_0x3.zip",
+    "bytes": 245736,
+    "sha256": "9cb50f2a2cfbbd4110f9e12c482f8b4ec3e800d9117727e395a28a20ca8c3de3"
+  },
+  {
+    "file": "lab_04.zip",
+    "downloaded_name": "lab_04.zip",
+    "bytes": 306184,
+    "sha256": "76e6f51b45e25f1ba77a32d27b1874ed92c96771c6c87bea6c0aaab9b45bc8f3"
+  },
+  {
+    "file": "lab04_progression_main.nasm",
+    "downloaded_name": "main.nasm",
+    "bytes": 1798,
+    "sha256": "f536669212384ed8cce4a25f5bb26349c8dd76b1a3546741346173a3ed98182f"
+  },
+  {
+    "file": "lesson5-6.zip",
+    "downloaded_name": "lesson5-6.zip",
+    "bytes": 479622,
+    "sha256": "3a374aa3f82cfcd397e69c85b841c8024dcecb6100b37d83c367782888a1c501"
+  }
+]
