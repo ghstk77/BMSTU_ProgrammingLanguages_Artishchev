@@ -1,4 +1,3 @@
-from math import sqrt
 import turtle as tr
 from math import isfinite
 
@@ -65,16 +64,18 @@ def plot(xs, ys, title):
     tr.done()
 
 
-def function(x):
-    if x <= -6:
-        return -sqrt(9 - (x + 6) ** 2)
-    if x <= -3:
-        return x + 3
-    if x <= 0:
-        return sqrt(9 - x ** 2)
-    if x <= 3:
-        return 3 - x
-    return (x - 3) / 2
+def function(x, eps=0.001):
+    term = 2 / x
+    y = term
+    n = 1
+    q = (1 / x) ** 2
+    next_term = term * q * (2 * n - 1) / (2 * n + 1)
+    while abs(next_term) / (1 - q) > eps:
+        y += next_term
+        term = next_term
+        n += 1
+        next_term = term * q * (2 * n - 1) / (2 * n + 1)
+    return y
 
 
 if __name__ == "__main__":
@@ -83,8 +84,8 @@ if __name__ == "__main__":
     dx = float(input("Введите шаг dx: "))
     if not all(isfinite(v) for v in (xb, xe, dx)) or dx <= 0 or xb > xe:
         raise ValueError("Нужно Xнач <= Xкон и dx > 0; числа должны быть конечными.")
-    if xb < -9 or xe > 9:
-        raise ValueError("Отрезок должен находиться в [-9; 9].")
+    if not (xe < -1 or xb > 1):
+        raise ValueError("Отрезок должен находиться в X < -1 или X > 1.")
     xs = []
     ys = []
     i = 0
@@ -96,4 +97,4 @@ if __name__ == "__main__":
         ys.append(function(x))
         i += 1
         x = xb + i * dx
-    plot(xs, ys, "Лабораторная работа 7. График функции, вариант 1")
+    plot(xs, ys, "Лабораторная работа 7. Логарифмический ряд, epsilon = 0.001")
