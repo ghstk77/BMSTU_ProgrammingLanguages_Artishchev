@@ -1,21 +1,12 @@
-from math import tan, cos, sin, pi, log
+from math import sin, cos, pi
+from pathlib import Path
 
-def function_1(a, x):
-    return tan(x**2/2-1)**2+(2*cos(x-pi/6))/(1/2+sin(a)**2)
-
-def function_2(x):
-    return pow(2, log(3-cos(pi/4+2*x), 3+sin(x))/(1+tan(2*x/pi)**2))
-
-with open("input.txt", "r") as input_file, \
-        open("output.txt", "w") as output_file:
-    header = "    a       x        y1        y2"
-    print(header)
-    output_file.write(header + "\n")
-    for line in input_file:
-        a, x = line.split()
-        output_line = "{0:7.2f} {1:7.2f} {2:9.4f} {3:9.4f}".format(float(a),
-                                                                    float(x),
-                                                                    function_1(float(a), float(x)),
-                                                                    function_2(float(x)))
-        print(output_line)
-        output_file.write(output_line + "\n")
+folder = Path(__file__).parent
+with open(folder / "input.txt", encoding="utf-8") as source, \
+        open(folder / "output.txt", "w", encoding="utf-8") as result:
+    result.write("      alpha              z1              z2\n")
+    for line in source:
+        alpha = float(line)
+        z1 = 2 * sin(3 * pi - 2 * alpha) ** 2 * cos(5 * pi + 2 * alpha) ** 2
+        z2 = 1 / 4 - 1 / 4 * sin(5 * pi / 2 - 8 * alpha)
+        result.write("{:12.6f} {:15.10f} {:15.10f}\n".format(alpha, z1, z2))
