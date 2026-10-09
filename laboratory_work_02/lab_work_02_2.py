@@ -1,17 +1,14 @@
-flag = False
-print('Введите координаты X и Y для точки:')
-x = float(input('X='))
-y = float(input('Y='))
+from math import isfinite
 
-if (-1 <= x < 1) and (2*x+2 <= y <= x**3-4*x**2+x+6) \
-        or (1 <= x <= 4) and (x**3-4*x**2+x+6 <= y <= 2*x+2):
-    flag = True
-else:
-    flag = False
+x = float(input("Введите X: "))
+y = float(input("Введите Y: "))
+r = float(input("Введите R: "))
 
-print("Точка X={0: 6.2f} Y={1: 6.2f}".format(x, y), end=" ")
-if flag:
-    print("попадает", end=" ")
+if not isfinite(x) or not isfinite(y) or not isfinite(r) or r <= 0:
+    print("Координаты должны быть конечными числами, R должен быть больше нуля.")
+elif x ** 2 + y ** 2 <= r ** 2 and (
+    (x >= 0 and y >= x) or (x <= 0 and y <= x)
+):
+    print("Точка попадает в область.")
 else:
-    print("не попадает", end=" ")
-print("в область.")
+    print("Точка не попадает в область.")
