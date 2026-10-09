@@ -1,26 +1,33 @@
-from math import *
+from math import sqrt, isfinite
 
-xb = float(input('Введите Xbeg='))
-xe = float(input('Введите Xend='))
-dx = float(input('Введите Dx='))
-print("Xbeg={0: 7.2f} Xend={1: 7.2f}".format(xb, xe))
-print(" Dx={0: 7.2f}".format(dx))
-xt = xb
-print("+--------+--------+")
-print("I X I Y I")
-print("+--------+--------+")
-while xt <= xe:
-    if xt < -5:
-        y = 1
-    elif xt >=-5 and xt<0:
-        y = -(3/5)*xt-2
-    elif xt >= 0 and xt<2:
-        y = -sqrt(4-xt**2)
-    elif xt >= 2 and xt<4:
-        y = xt-2
-    elif xt >= 4 and xt<8:
-        y = 2+sqrt(4-(xt-6)**2)
-    else: y = 2
-    print("I{0: 7.2f} I{1: 7.2f} I".format(xt, y))
-    xt += dx
-print("+--------+--------+")
+xb = float(input("Введите Xнач: "))
+xe = float(input("Введите Xкон: "))
+dx = float(input("Введите шаг dx: "))
+
+if not all(isfinite(v) for v in (xb, xe, dx)) or not -9 <= xb <= xe <= 9 or dx <= 0:
+    print("Нужно -9 <= Xнач <= Xкон <= 9 и dx > 0; числа должны быть конечными.")
+else:
+    print("Таблица значений функции, вариант 1")
+    print("Xнач = {}, Xкон = {}, dx = {}".format(xb, xe, dx))
+    print("+------------+------------+")
+    print("|     X      |     Y      |")
+    print("+------------+------------+")
+    i = 0
+    x = xb
+    while x <= xe or abs(x - xe) <= dx * 1e-9:
+        if x > xe:
+            x = xe
+        if x <= -6:
+            y = -sqrt(9 - (x + 6) ** 2)
+        elif x <= -3:
+            y = x + 3
+        elif x <= 0:
+            y = sqrt(9 - x ** 2)
+        elif x <= 3:
+            y = 3 - x
+        else:
+            y = (x - 3) / 2
+        print("|{:12.4f}|{:12.4f}|".format(x, y))
+        i += 1
+        x = xb + i * dx
+    print("+------------+------------+")

@@ -1,21 +1,18 @@
-from math import *
-from random import *
+from random import uniform
+from math import isfinite
 
-flag = False
-print(" X Y Res")
-print("-------------------")
-for n in range(10):
-    x = uniform(-1, 4)
-    y = uniform(-1, 10)
-    if (x < -1) or (x > 4):
-        flag = False #False
-    if (((x >= -1) and (x < 1) and (y >= 2*x+2) and (y <= x**3-4*x**2+x+6))
-        or ((x >= 1) and (x <= 4) and (y >= x**3-4*x**2+x+6) and (y <= 2*x+2))):
-        flag = True
-    else:
-        flag = False
-    print("{0: 7.2f} {1: 7.2f}".format(x, y), end=' ')
-    if flag:
-        print("Yes")
-    else:
-        print("No")
+r = float(input("Введите R: "))
+
+if not isfinite(r) or r <= 0:
+    print("R должен быть конечным числом больше нуля.")
+else:
+    print("Десять выстрелов, вариант 1")
+    print(" №       X          Y       Результат")
+    for n in range(1, 11):
+        x = uniform(-r, r)
+        y = uniform(-r, r)
+        hit = x ** 2 + y ** 2 <= r ** 2 and (
+            (x >= 0 and y >= x) or (x <= 0 and y <= x)
+        )
+        result = "Попадание" if hit else "Промах"
+        print("{:2} {:10.4f} {:10.4f}   {}".format(n, x, y, result))
